@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neuro LearnAble — Learning, your way</title>
+    <meta name="description" content="Help people learn any topic through accessible explanations, visual learning, and interactive mini-quizzes." />
+    <meta property="og:title" content="Neuro LearnAble — Learning, your way" />
+    <meta property="og:description" content="Help people learn any topic through accessible explanations, visual learning, and interactive mini-quizzes." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="./assets/icon-192.svg" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Skip to main content for screen readers -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Top Accessible Navigation Bar -->
+    <header class="app-header">
+      <div class="header-container">
+        <a href="#" class="brand" id="brand-logo-btn" aria-label="Neuro LearnAble Home">
+          <div class="brand-icon">
+            <svg viewBox="0 0 40 40" width="36" height="36" aria-hidden="true">
+              <defs>
+                <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#3b82f6" />
+                  <stop offset="100%" stop-color="#8b5cf6" />
+                </linearGradient>
+              </defs>
+              <rect width="40" height="40" rx="10" fill="url(#logoGrad)" />
+              <path d="M12 16 C 16 13, 19 13, 20 16 C 21 13, 24 13, 28 16 L 28 27 C 24 24, 21 24, 20 27 C 19 24, 16 24, 12 27 Z" fill="#ffffff" />
+              <circle cx="20" cy="11" r="2.5" fill="#fef08a" />
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">Neuro LearnAble</span>
+            <span class="brand-tagline">Learning, your way.</span>
+          </div>
+        </a>
+
+        <!-- Accessibility & Utility Controls -->
+        <div class="accessibility-controls" aria-label="Accessibility settings">
+          <!-- Text size adjustment -->
+          <div class="control-group" title="Adjust text size">
+            <span class="control-label" id="text-size-label">Text size:</span>
+            <button type="button" class="btn-text-size" id="btn-font-normal" aria-pressed="true" aria-label="Default text size">A</button>
+            <button type="button" class="btn-text-size" id="btn-font-large" aria-pressed="false" aria-label="Large text size">A+</button>
+            <button type="button" class="btn-text-size" id="btn-font-xlarge" aria-pressed="false" aria-label="Extra large text size">A++</button>
+          </div>
+
+          <!-- High contrast toggle -->
+          <button type="button" class="btn-tool" id="btn-contrast-toggle" aria-label="Toggle high contrast mode" title="Toggle high contrast">
+            <svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 2a10 10 0 0 1 0 20z" fill="currentColor"></path>
+            </svg>
+            <span class="tool-label">Contrast</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-layout" tabindex="-1">
+      <!-- ==============================================
+           1. HOME VIEW (Topic Input & Discovery)
+           ============================================== -->
+      <section id="home-view" class="view-panel active" aria-labelledby="hero-title">
+        <div class="hero-section">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Empowering curious minds of all learning styles
+          </div>
+          <h1 id="hero-title" class="hero-heading">
+            Learn any topic through accessible explanations, visuals & quizzes.
+          </h1>
+          <p class="hero-subtext">
+            No jargon. No confusion. Choose a topic to explore clear concepts, step-by-step guides, relatable analogies, and self-paced mini-quizzes.
+          </p>
+
+          <!-- Main Topic Input Form -->
+          <form id="topic-form" class="topic-form" role="search" aria-label="Topic search">
+            <div class="input-wrapper">
+              <label for="topic-input" class="sr-only">Enter a topic to learn</label>
+              <svg class="search-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input
+                type="text"
+                id="topic-input"
+                name="topic"
+                class="topic-input"
+                placeholder="What would you like to understand? (e.g., Photosynthesis, Black Holes, AI...)"
+                autocomplete="off"
+                required
+              />
+              <button type="button" id="btn-clear-input" class="btn-clear hidden" aria-label="Clear input">
+                ✕
+              </button>
+            </div>
+            <button type="submit" id="btn-start-learning" class="btn-primary btn-large">
+              <span>Start Learning</span>
+              <svg class="btn-arrow" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </form>
+
+          <!-- Input notice / status -->
+          <div id="form-feedback" class="form-feedback" role="alert" aria-live="polite"></div>
+
+          <!-- Quick Discovery Chips -->
+          <div class="popular-topics-container">
+            <div class="popular-header">
+              <span class="popular-title">Or try a popular topic:</span>
+              <button type="button" id="btn-surprise-me" class="btn-surprise" title="Pick a random fascinating topic">
+                🎲 Surprise Me!
+              </button>
+            </div>
+            <div class="topic-chips" role="list">
+              <button type="button" class="topic-chip" data-topic="Photosynthesis">🌱 Photosynthesis</button>
+              <button type="button" class="topic-chip" data-topic="How Black Holes Work">🌌 Black Holes</button>
+              <button type="button" class="topic-chip" data-topic="Artificial Intelligence">🤖 How AI Learns</button>
+              <button type="button" class="topic-chip" data-topic="The Human Heart">❤️ The Human Heart</button>
+              <button type="button" class="topic-chip" data-topic="Plate Tectonics">🌋 Plate Tectonics</button>
+              <button type="button" class="topic-chip" data-topic="How Airplanes Fly">✈️ How Airplanes Fly</button>
+              <button type="button" class="topic-chip" data-topic="Quantum Computing">🔬 Quantum Computing</button>
+              <button type="button" class="topic-chip" data-topic="The Water Cycle">💧 The Water Cycle</button>
+              <button type="button" class="topic-chip" data-topic="Renewable Energy">☀️ Renewable Energy</button>
+              <button type="button" class="topic-chip" data-topic="Democracy & Voting">🗳️ Democracy & Voting</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Educational pillars section -->
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon bg-blue">
+              💡
+            </div>
+            <h3>3 Learning Modes</h3>
+            <p>Switch freely between jargon-free Simple Explanations, ordered Step-by-Step guides, and relatable Everyday Examples.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon bg-purple">
+              🎨
+            </div>
+            <h3>Visual Illustrations</h3>
+            <p>Understand how concepts connect with clear visual diagrams and interactive educational illustrations.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon bg-emerald">
+              🎯
+            </div>
+            <h3>Interactive Mini-Quiz</h3>
+            <p>Solidify your understanding with 3 multiple-choice questions featuring immediate explanations and score tracking.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon bg-amber">
+              🔊
+            </div>
+            <h3>Built for Accessibility</h3>
+            <p>Equipped with text-to-speech read-aloud audio, adjustable typography sizes, high contrast, and keyboard navigation.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           2. LOADING VIEW
+           ============================================== -->
+      <section id="loading-view" class="view-panel" aria-live="assertive" aria-busy="true">
+        <div class="loading-card">
+          <div class="spinner-container">
+            <div class="loading-ring"></div>
+            <div class="loading-sparkle">✨</div>
+          </div>
+          <h2 id="loading-topic-title" class="loading-title">Crafting your learning journey...</h2>
+          <p id="loading-subtitle" class="loading-desc">Synthesizing clear explanations, visual illustrations, and a customized quiz.</p>
+          <div class="loading-progress-bar">
+            <div class="loading-progress-fill"></div>
+          </div>
+          <p class="loading-quote">“The mind is not a vessel to be filled, but a fire to be kindled.”</p>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           3. ACTIVE LEARNING VIEW
+           ============================================== -->
+      <section id="learning-view" class="view-panel" aria-labelledby="current-topic-heading">
+        <!-- Top Sticky Action Bar -->
+        <div class="learning-action-bar">
+          <button type="button" id="btn-try-another" class="btn-secondary" aria-label="Try another topic">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span>Try Another Topic</span>
+          </button>
+
+          <div class="audio-controls-group">
+            <button type="button" id="btn-read-aloud" class="btn-action-tool" aria-label="Read lesson aloud" title="Listen with Text-to-Speech">
+              <svg id="speech-icon-play" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              </svg>
+              <span id="speech-btn-text">Read Aloud</span>
+            </button>
+            <button type="button" id="btn-copy-summary" class="btn-action-tool" aria-label="Copy lesson notes to clipboard" title="Copy notes">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Copy Notes</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Topic Banner -->
+        <div class="topic-banner">
+          <div class="topic-meta">
+            <span class="topic-badge" id="topic-source-badge">✨ Ready to Learn</span>
+            <span class="reading-time" id="reading-time-badge">⏱️ 3 min read</span>
+          </div>
+          <h1 id="current-topic-heading" class="topic-main-title">Photosynthesis</h1>
+          <p id="current-topic-tagline" class="topic-main-tagline">How plants capture sunlight and turn it into food and fresh oxygen.</p>
+        </div>
+
+        <!-- 3 Learning Modes Navigation Tabs -->
+        <nav class="learning-modes-nav" aria-label="Learning mode tabs">
+          <div class="nav-tabs-wrapper" role="tablist">
+            <button
+              type="button"
+              role="tab"
+              id="tab-simple"
+              aria-selected="true"
+              aria-controls="panel-simple"
+              class="mode-tab active"
+            >
+              <span class="tab-icon">💡</span>
+              <span class="tab-title">Simple Explanation</span>
+            </button>
+
+            <button
+              type="button"
+              role="tab"
+              id="tab-steps"
+              aria-selected="false"
+              aria-controls="panel-steps"
+              class="mode-tab"
+            >
+              <span class="tab-icon">🪜</span>
+              <span class="tab-title">Step-by-Step</span>
+            </button>
+
+            <button
+              type="button"
+              role="tab"
+              id="tab-examples"
+              aria-selected="false"
+              aria-controls="panel-examples"
+              class="mode-tab"
+            >
+              <span class="tab-icon">🌍</span>
+              <span class="tab-title">Everyday Examples</span>
+            </button>
+          </div>
+        </nav>
+
+        <!-- Learning Mode Content Panels -->
+        <div class="learning-content-card">
+          <!-- Mode 1: Simple Explanation -->
+          <div id="panel-simple" role="tabpanel" aria-labelledby="tab-simple" class="tab-panel active">
+            <div class="panel-header">
+              <h2 class="panel-title">The Big Picture</h2>
+              <p class="panel-subtitle">Here is the clear, jargon-free core concept in plain English.</p>
+            </div>
+            <div id="simple-explanation-content" class="explanation-body">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Mode 2: Step-by-Step -->
+          <div id="panel-steps" role="tabpanel" aria-labelledby="tab-steps" class="tab-panel hidden">
+            <div class="panel-header">
+              <h2 class="panel-title">Step-by-Step Process</h2>
+              <p class="panel-subtitle">Follow the progression broken down into simple, sequential stages.</p>
+            </div>
+            <div id="step-by-step-content" class="steps-container">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Mode 3: Everyday Examples -->
+          <div id="panel-examples" role="tabpanel" aria-labelledby="tab-examples" class="tab-panel hidden">
+            <div class="panel-header">
+              <h2 class="panel-title">Relatable Real-World Analogies</h2>
+              <p class="panel-subtitle">How this concept looks in daily life and familiar objects.</p>
+            </div>
+            <div id="everyday-examples-content" class="examples-grid">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ==============================================
+             Visual Learning Section (SVG / Illustration)
+             ============================================== -->
+        <section class="visual-learning-section" aria-labelledby="visual-section-heading">
+          <div class="visual-card">
+            <div class="visual-header">
+              <div class="visual-title-group">
+                <span class="visual-badge">🎨 Visual Learning</span>
+                <h2 id="visual-section-heading" class="visual-title">Concept Illustration & Diagram</h2>
+              </div>
+              <span class="visual-caption-tag" id="visual-type-tag">Interactive SVG Diagram</span>
+            </div>
+
+            <!-- Dynamic Illustration / SVG container -->
+            <div id="visual-illustration-container" class="visual-render-box">
+              <!-- Dynamically injected SVG or visual diagram -->
+            </div>
+
+            <div id="visual-description" class="visual-description-text">
+              <!-- Description of what the visual depicts -->
+            </div>
+          </div>
+        </section>
+
+        <!-- ==============================================
+             Key Takeaways Checklist
+             ============================================== -->
+        <section class="takeaways-section" aria-labelledby="takeaways-heading">
+          <div class="takeaways-card">
+            <div class="takeaways-header">
+              <span class="takeaways-icon">✨</span>
+              <h2 id="takeaways-heading" class="takeaways-title">Key Takeaways at a Glance</h2>
+            </div>
+            <ul id="key-takeaways-list" class="takeaways-list">
+              <!-- Dynamically populated -->
+            </ul>
+          </div>
+        </section>
+
+        <!-- ==============================================
+             Interactive 3-Question Mini-Quiz
+             ============================================== -->
+        <section id="quiz-section" class="quiz-section" aria-labelledby="quiz-section-heading">
+          <div class="quiz-card">
+            <div class="quiz-top-bar">
+              <div class="quiz-header-info">
+                <span class="quiz-pill">🎯 Mini-Quiz</span>
+                <h2 id="quiz-section-heading" class="quiz-title">Test Your Understanding</h2>
+              </div>
+              <div class="quiz-status-metrics">
+                <div class="quiz-progress-text" id="quiz-question-counter">
+                  Question <span id="current-q-num">1</span> of 3
+                </div>
+                <div class="quiz-score-badge" id="quiz-score-live-badge" title="Contador de aciertos">
+                  🎯 Aciertos: <strong id="live-score-val">0</strong>/3
+                </div>
+              </div>
+            </div>
+
+            <!-- Progress tracker bar -->
+            <div class="quiz-progress-track" aria-hidden="true">
+              <div id="quiz-progress-bar" class="quiz-progress-indicator" style="width: 33.3%;"></div>
+            </div>
+
+            <!-- Active Question Container -->
+            <div id="quiz-question-view" class="quiz-question-view">
+              <h3 id="quiz-question-text" class="quiz-question-text">
+                What is the primary green pigment in plants that absorbs sunlight?
+              </h3>
+
+              <!-- 4 Choice Options -->
+              <div id="quiz-options-container" class="quiz-options-grid" role="radiogroup" aria-labelledby="quiz-question-text">
+                <!-- Dynamically populated options -->
+              </div>
+
+              <!-- Immediate Feedback Box -->
+              <div id="quiz-feedback-box" class="quiz-feedback-box hidden" role="alert" aria-live="polite">
+                <div class="feedback-icon" id="feedback-icon">✓</div>
+                <div class="feedback-content">
+                  <h4 class="feedback-title" id="feedback-title">Correct!</h4>
+                  <p class="feedback-explanation" id="feedback-explanation">
+                    Chlorophyll absorbs sunlight to kickstart the food-making process.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Next / Finish Quiz Button -->
+              <div class="quiz-nav-row">
+                <button type="button" id="btn-next-question" class="btn-primary hidden">
+                  <span id="next-q-text">Next Question</span>
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Quiz Results / Completion Summary Card -->
+            <div id="quiz-results-view" class="quiz-results-view hidden" aria-live="polite">
+              <div class="results-badge-wrap">
+                <div class="score-circle" id="score-circle">
+                  <span class="score-num" id="score-display">0/3</span>
+                  <span class="score-percent" id="percent-display">0%</span>
+                </div>
+              </div>
+
+              <h3 class="results-title" id="results-title">Mastery Achieved! 🎉</h3>
+              <p class="results-message" id="results-message">
+                You've built a solid foundation on this topic. Great curiosity and critical thinking!
+              </p>
+
+              <!-- Detailed Answers Accordion / Breakdown -->
+              <div class="results-breakdown">
+                <button type="button" id="btn-toggle-answers" class="btn-accordion" aria-expanded="false" aria-controls="answers-review-list">
+                  <span>Review All 3 Questions & Explanations</span>
+                  <svg class="chevron-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div id="answers-review-list" class="answers-review-list hidden">
+                  <!-- Dynamically populated answer review -->
+                </div>
+              </div>
+
+              <div class="results-action-row">
+                <button type="button" id="btn-retake-quiz" class="btn-secondary">
+                  🔄 Retake Quiz
+                </button>
+                <button type="button" id="btn-quiz-try-another" class="btn-primary">
+                  🚀 Explore Another Topic
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Bottom Action CTA -->
+        <div class="bottom-action-banner">
+          <div class="bottom-banner-content">
+            <h3>Curious about something else?</h3>
+            <p>Every topic in science, history, art, and everyday life can be made clear and accessible.</p>
+          </div>
+          <button type="button" id="btn-banner-another" class="btn-primary btn-large">
+            Try Another Topic
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Notification Toast -->
+    <div id="toast-message" class="toast-message hidden" role="status" aria-live="polite"></div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <span class="footer-logo">Neuro LearnAble</span>
+          <span class="footer-dot">•</span>
+          <span class="footer-tagline">Learning, your way.</span>
+        </div>
+        <div class="footer-info">
+          Accessible explanations • Visual concept diagrams • 3-Question mini-quizzes
+        </div>
+      </div>
+    </footer>
+
+    <!-- Main JavaScript Logic -->
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>

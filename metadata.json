@@ -1,0 +1,8 @@
+{
+  "name": "LearnAble",
+  "description": "Learning, your way. Learn any topic through accessible explanations, visual learning, and interactive mini-quizzes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

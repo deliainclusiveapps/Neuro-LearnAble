@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#e0e7ff" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#1e1b4b" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <rect width="192" height="192" rx="44" fill="url(#bgGrad)" />
+  <g filter="url(#shadow)" transform="translate(36, 42)">
+    <!-- Open Book / Wings of knowledge -->
+    <path d="M60 22 C 45 10, 15 12, 0 20 L 0 82 C 15 74, 45 72, 60 84 C 75 72, 105 74, 120 82 L 120 20 C 105 12, 75 10, 60 22 Z" fill="#ffffff" fill-opacity="0.95" />
+    <path d="M60 22 L 60 84" stroke="#6366f1" stroke-width="3" stroke-linecap="round" />
+    <!-- Lightbulb / Insight Sparkle -->
+    <circle cx="60" cy="8" r="8" fill="#fbbf24" />
+    <path d="M60 -2 L 60 0 M60 16 L 60 18 M50 8 L 52 8 M68 8 L 70 8" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M18 36 C 30 30, 46 30, 52 34" stroke="#c7d2fe" stroke-width="3" stroke-linecap="round" />
+    <path d="M18 48 C 30 42, 46 42, 52 46" stroke="#c7d2fe" stroke-width="3" stroke-linecap="round" />
+    <path d="M68 34 C 74 30, 90 30, 102 36" stroke="#c7d2fe" stroke-width="3" stroke-linecap="round" />
+    <path d="M68 46 C 74 42, 90 42, 102 48" stroke="#c7d2fe" stroke-width="3" stroke-linecap="round" />
+  </g>
+</svg>

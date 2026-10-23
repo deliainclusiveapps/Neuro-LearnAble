@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad512" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="45%" stop-color="#4f46e5" />
+      <stop offset="100%" stop-color="#7c3aed" />
+    </linearGradient>
+    <filter id="shadow512" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="116" fill="url(#bgGrad512)" />
+  <g filter="url(#shadow512)" transform="translate(96, 110)">
+    <!-- Open Book / Wings -->
+    <path d="M160 60 C 120 28, 40 32, 0 54 L 0 220 C 40 198, 120 194, 160 224 C 200 194, 280 198, 320 220 L 320 54 C 280 32, 200 28, 160 60 Z" fill="#ffffff" fill-opacity="0.97" />
+    <path d="M160 60 L 160 224" stroke="#4f46e5" stroke-width="8" stroke-linecap="round" />
+    <!-- Bright star / idea bulb -->
+    <circle cx="160" cy="22" r="22" fill="#fbbf24" />
+    <path d="M160 -5 L 160 0 M160 44 L 160 49 M133 22 L 138 22 M182 22 L 187 22" stroke="#f59e0b" stroke-width="6" stroke-linecap="round" />
+    <!-- Text Lines -->
+    <path d="M48 98 C 80 82, 124 82, 140 92" stroke="#c7d2fe" stroke-width="8" stroke-linecap="round" />
+    <path d="M48 130 C 80 114, 124 114, 140 124" stroke="#c7d2fe" stroke-width="8" stroke-linecap="round" />
+    <path d="M180 92 C 196 82, 240 82, 272 98" stroke="#c7d2fe" stroke-width="8" stroke-linecap="round" />
+    <path d="M180 124 C 196 114, 240 114, 272 130" stroke="#c7d2fe" stroke-width="8" stroke-linecap="round" />
+  </g>
+</svg>
