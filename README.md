@@ -6,7 +6,7 @@ Neuro LearnAble is a lightweight, responsive, and accessible educational web app
 
 ---
 
-## 🌟 Key Features
+##  Key Features
 
 1. **Welcoming Home Screen**:
    - Clean, accessible topic search bar with instant autocomplete clearing.
@@ -14,9 +14,9 @@ Neuro LearnAble is a lightweight, responsive, and accessible educational web app
    - "Surprise Me!" random exploration button.
 
 2. **Three Learning Modes**:
-   - 💡 **Simple Explanation**: Clear, jargon-free essence in plain English.
-   - 🪜 **Step-by-Step**: Chronological, numbered breakdown of stages and processes.
-   - 🌍 **Everyday Examples**: Memorable real-world analogies and everyday connections.
+   -  **Simple Explanation**: Clear, jargon-free essence in plain English.
+   -  **Step-by-Step**: Chronological, numbered breakdown of stages and processes.
+   -  **Everyday Examples**: Memorable real-world analogies and everyday connections.
 
 3. **Visual Learning & Concept Diagrams**:
    - Interactive, beautiful educational SVG illustrations and diagrams tailored to the topic.
@@ -42,7 +42,7 @@ Neuro LearnAble is a lightweight, responsive, and accessible educational web app
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 ├── index.html            # Main semantic HTML5 entry point
@@ -60,7 +60,7 @@ Neuro LearnAble is a lightweight, responsive, and accessible educational web app
 
 ---
 
-## 🚀 How to Run Locally
+## How to Run Locally
 
 You can run Neuro LearnAble using any local HTTP server or by opening `index.html` directly in your modern web browser.
 
@@ -84,7 +84,7 @@ npm run dev
 
 ---
 
-## 🌐 How to Publish to GitHub Pages
+## How to Publish to GitHub Pages
 
 Because Neuro LearnAble uses plain HTML, CSS, and JavaScript with relative file paths, deploying it to GitHub Pages takes under two minutes:
 
@@ -114,7 +114,7 @@ Because Neuro LearnAble uses plain HTML, CSS, and JavaScript with relative file 
 
 ---
 
-## 🔒 Security & Privacy Policy
+## Security & Privacy Policy
 
 - **No Secret Keys in Client Code**: Neuro LearnAble never exposes private API keys in client-side source code.
 - **Offline & Independent**: When running statically on GitHub Pages, the application runs cleanly using the built-in verified curriculum and client-side educational engine without transmitting personal data.
