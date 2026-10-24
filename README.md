@@ -76,38 +76,7 @@ Then open `http://localhost:8000` in your web browser.
 npx serve .
 ```
 
-### Option 3: Development Server (AI Studio / Vite)
-```bash
-npm install
-npm run dev
-```
-
----
-
-## How to Publish to GitHub Pages
-
-Because Neuro LearnAble uses plain HTML, CSS, and JavaScript with relative file paths, deploying it to GitHub Pages takes under two minutes:
-
-1. **Create a GitHub Repository**:
-   - Go to [GitHub](https://github.com) and create a new public repository (e.g., `neuro-learnable`).
-
-2. **Push the Files to GitHub**:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit of Neuro LearnAble"
-   git branch -M main
-   git remote add origin https://github.com/<YOUR-USERNAME>/neuro-learnable.git
-   git push -u origin main
-   ```
-
-3. **Enable GitHub Pages**:
-   - In your GitHub repository, click on **Settings** (top tab).
-   - In the left sidebar, click **Pages**.
-   - Under **Build and deployment** > **Source**, choose **Deploy from a branch**.
-   - Under **Branch**, select `main` and root folder `/ (root)`, then click **Save**.
-
-4. **Visit Your Live Web App**:
+**Visit Your Live Web App**:
    - Within 1–2 minutes, GitHub Pages will deploy your site at:
      `https://<YOUR-USERNAME>.github.io/learnable/`
    - Everything works out of the box with zero server configuration!
